@@ -17,6 +17,7 @@ public class CarrinhoCompras {
         primeiroLivro.preco = 29.99;
         primeiroLivro.resumo = "Explica como assumir o poder através de uma revolução de loucos.";
 
+        primeiroLivro.exibir();
         Livro segundoLivro = new Livro();
         segundoLivro.titulo = "Mindset";
         segundoLivro.autor = "Carol S. Dweck";
@@ -26,6 +27,7 @@ public class CarrinhoCompras {
         segundoLivro.versao = VersaoEnum.RESUMIDA;
         segundoLivro.preco = 24.90;
         segundoLivro.resumo = "Mostra como a mentalidade de crescimento pode impactar o sucesso.";
+        segundoLivro.exibir();
 
         // Terceiro livro
         Livro terceiroLivro = new Livro();
@@ -37,6 +39,7 @@ public class CarrinhoCompras {
         terceiroLivro.versao = VersaoEnum.INTEGRAL;
         terceiroLivro.preco = 19.90;
         terceiroLivro.resumo = "Ensina conceitos fundamentais sobre educação financeira.";
+        terceiroLivro.exibir();
     }
 
 }
