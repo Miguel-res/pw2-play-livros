@@ -9,4 +9,11 @@ public class Avaliacao {
         public String comentario;
         public Usuario usuario;
         public boolean aprovado;
+
+        public void exibir(){
+                System.out.println("Usuario" + usuario);
+                System.out.println(estrelas + " Estrelas " + titulo);
+                System.out.println("Data" + data);
+                System.out.println("Comentario" + comentario);
+        }
 }
