@@ -6,8 +6,7 @@ import java.time.LocalDateTime;
 
 public class TesteAvaliação {
     static void main() {
-        Usuario horacio = new Usuario();
-        horacio.nome = "Horacio Augusto da Silveira";
+        Usuario horacio = new Usuario("Horacio Augusto da Silveira");
         Avaliacao primeiraAvaliacao = new Avaliacao();
         primeiraAvaliacao.titulo = "Livro Exelente";
         primeiraAvaliacao.usuario = horacio;
