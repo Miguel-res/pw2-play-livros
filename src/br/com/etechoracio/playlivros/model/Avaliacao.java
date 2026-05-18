@@ -4,18 +4,45 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Avaliacao {
-        public int estrelas;
-        public String titulo;
-        public LocalDateTime data;
-        public String comentario;
-        public Usuario usuario;
-        public boolean aprovado;
+        private int estrelas;
+        private String titulo;
+        private LocalDateTime data;
+        private String comentario;
+        private Usuario usuario;
+        private boolean aprovado;
+
+        public void aprovar(){
+                this.aprovado = true;
+        }
+        public Usuario getUsuario() {
+                return usuario;
+        }
+
+        public void setEstrelas(int estrelas) {
+                this.estrelas = estrelas;
+        }
+
+        public void setTitulo(String titulo) {
+                this.titulo = titulo;
+        }
+
+        public void setData(LocalDateTime data) {
+                this.data = data;
+        }
+
+        public void setComentario(String comentario) {
+                this.comentario = comentario;
+        }
+
+        public void setUsuario(Usuario usuario) {
+                this.usuario = usuario;
+        }
 
         public void exibir() {
-                System.out.println("Usuario" + usuario);
+                System.out.println(usuario.getNome());
                 System.out.println(estrelas + " Estrelas " + titulo);
                 System.out.println("Avaliado em " + obterDataPorExtenso());
-                System.out.println("Comentario" + comentario);
+                System.out.println("Comentario: " + comentario);
         }
 
         public String obterDataPorExtenso() {
