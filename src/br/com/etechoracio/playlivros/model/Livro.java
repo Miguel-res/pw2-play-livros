@@ -23,5 +23,11 @@ public class Livro {
         System.out.println("Editora" + editora);
         System.out.println("Preço" + preco);
     }
+    public double getTaxaEnvio(){
+        if(impresso) {
+            return preco * 0.07;
+        }
+        return 0;
+    }
 }
 
