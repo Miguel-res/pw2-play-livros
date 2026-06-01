@@ -1,16 +1,18 @@
 package br.com.etechoracio.playlivros.model;
 
 import br.com.etechoracio.playlivros.enums.ClassificacaoIndicativaEnum;
-class Livroimpresso extends Livro{
-    private int paginas;
-}
 
-public class LivroImpresso {
-    public String titulo;
-    public String autor;
-    public String editora;
-    public double preco;
-    public String resumo;
+public class LivroImpresso extends Livro {
+    private String titulo;
+    private String autor;
+    private String editora;
+    private double preco;
+    private String resumo;
+    private int paginas;
+
+    public void setPaginas(int paginas) {
+        this.paginas = paginas;
+    }
     private ClassificacaoIndicativaEnum classificacaoIndicativa(){
         return classificacaoIndicativa;
     }

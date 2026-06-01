@@ -6,13 +6,13 @@ public class testareferencias {
 
     static void main() {
         Livro livroA = new Livro();
-        livroA.titulo = "Meu br.com.etechoracio.playlivros.model.Livro A";
-        System.out.println(livroA.titulo);
+        livroA.setTitulo("Meu br.com.etechoracio.playlivros.model.Livro A");
+        System.out.println(livroA.setTitulo());
 
         Livro livroB = livroA;
-        livroB.titulo = "Meu br.com.etechoracio.playlivros.model.Livro B";
-        System.out.println(livroB.titulo);
-        System.out.println(livroA.titulo);
+        livroB.setTitulo("Meu br.com.etechoracio.playlivros.model.Livro B");
+        System.out.println(livroB.setTitulo());
+        System.out.println(livroA.setTitulo());
     }
 
 }
