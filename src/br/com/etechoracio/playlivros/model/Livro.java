@@ -1,19 +1,76 @@
 package br.com.etechoracio.playlivros.model;
 
+import br.com.etechoracio.playlivros.enums.DisponibilidadeEnum;
 import br.com.etechoracio.playlivros.enums.VersaoEnum;
+import br.com.etechoracio.playlivros.interfaces.Publicacao;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-public class Livro {
+public abstract class Livro implements Publicacao {
     private String titulo;
     private String autor;
-    private String narrador;
     private String editora;
-    private LocalTime duracao;
-    private VersaoEnum versao;
-    private double preco;
+    protected double preco;
     private String resumo;
+    private LocalDate dataLancamento;
+    private int TaxaEnvio;
+
+
+    public void exibir(){
+        System.out.println("-----------------------------------");
+        System.out.println("Título: " + titulo);
+        System.out.println("Autor: " + autor);
+        System.out.println("Editora: " + editora);
+        System.out.println("Preço: " + preco);
+        System.out.println(obterDisponibilidade());
+    }
+
+    public DisponibilidadeEnum obterDisponibilidade(){
+        LocalDate dataAtual = LocalDate.now();
+        if(dataLancamento == null){
+            return DisponibilidadeEnum.INDISPONIVEL;
+        }else if(dataLancamento.isAfter(dataAtual)){
+            return DisponibilidadeEnum.EM_PRE_VENDA;
+        }else if(dataLancamento.isAfter(dataAtual.minusDays(30))){
+            return DisponibilidadeEnum.LANCAMENTO_RECENTE;
+        }else{
+            return DisponibilidadeEnum.DISPONIVEL;
+        }
+    }
+
+    public double getTaxaEnvio() {
+        return TaxaEnvio;
+    }
+
+    public void setTaxaEnvio(int taxaEnvio) {
+        TaxaEnvio = taxaEnvio;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public String getEditora() {
+        return editora;
+    }
+
+    public String getResumo() {
+        return resumo;
+    }
+
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
+    }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -23,20 +80,8 @@ public class Livro {
         this.autor = autor;
     }
 
-    public void setNarrador(String narrador) {
-        this.narrador = narrador;
-    }
-
     public void setEditora(String editora) {
         this.editora = editora;
-    }
-
-    public void setDuracao(LocalTime duracao) {
-        this.duracao = duracao;
-    }
-
-    public void setVersao(VersaoEnum versao) {
-        this.versao = versao;
     }
 
     public void setPreco(double preco) {
@@ -47,19 +92,10 @@ public class Livro {
         this.resumo = resumo;
     }
 
-    public void exibir(){
-        System.out.println("=====================");
-        System.out.println("Titulo" + titulo);
-        System.out.println("Autor" + autor);
-        System.out.println("Narrador" + narrador);
-        System.out.println("Editora" + editora);
-        System.out.println("Preço" + preco);
+    public void setDataLancamento(LocalDate dataLancamento) {
+        this.dataLancamento = dataLancamento;
     }
-    public double getTaxaEnvio(){
-        if(impresso) {
-            return preco * 0.07;
-        }
-        return 0;
-    }
+
+    protected abstract void exibirDetalhes();
 }
 
